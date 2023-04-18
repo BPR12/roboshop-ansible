@@ -8,7 +8,7 @@
     
 - name: Add Application User
   ansible.builtin.user:
-      name: Roboshop
+      name: roboshop
       
 - name: Remove Old App Content
   ansible.builtin.file:
@@ -43,3 +43,10 @@
     enabled: yes
     state: restarted
     
+#
+#- name: Run a js file containing MongoDB commands with pseudo-idempotency
+#  community.mongodb.mongodb_shell:
+#    login_user: user
+#    login_password: secret
+#    file: "/path/to/mongo/file.js"
+#    idempotent: yes
