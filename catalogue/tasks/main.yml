@@ -43,10 +43,9 @@
     enabled: yes
     state: restarted
     
-#
-#- name: Run a js file containing MongoDB commands with pseudo-idempotency
-#  community.mongodb.mongodb_shell:
-#    login_user: user
-#    login_password: secret
-#    file: "/path/to/mongo/file.js"
-#    idempotent: yes
+
+- name: Load Schema
+  community.mongodb.mongodb_shell:
+    login_host: mongodb-dev.devops22.online
+    file: "/app/schema/catalogue.js"
+    idempotent: yes
