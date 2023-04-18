@@ -20,8 +20,8 @@
 #  print_head "Extract Front end content"
 #  unzip /tmp/frontend.zip &>>${LOG}
 #  status_check
-#
-#
+
+
 #
 #  print_head "Copy Nginx Config File"
 #  cp ${script_location}/files/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf &>>${LOG}
@@ -40,5 +40,12 @@
   ansible.builtin.yum:
     name: nginx
     state: installed
+    
+- name: Remove old HTTP files
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+    
+
     
     
