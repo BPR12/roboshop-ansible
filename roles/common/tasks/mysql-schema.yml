@@ -1,3 +1,10 @@
+- name: Install Python Dependencies
+  ansible.builtin.yum:
+    name:
+      - python3-PyMySQL
+      - Mysql
+    state: installed
+    
 - name: Load MySQL Schema
   community.mysql.mysql_db:
     state: import
@@ -7,9 +14,3 @@
     login_user: root
     login_password: "{{root_mysql_password}}"
     
-- name: Install Python Dependencies
-  ansible.builtin.yum:
-    name:
-      - python3-PyMySQL
-      - Mysql
-    state: installed
