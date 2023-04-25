@@ -12,5 +12,5 @@
     target: app/schema/{{component}}.sql
     login_host: mysql-dev.devops22.online
     login_user: root
-    login_password: "{{root_mysql_password}}"
+    login_password: "{{ root_mysql_password }}"
     
