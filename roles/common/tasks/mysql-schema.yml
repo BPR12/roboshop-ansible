@@ -1,3 +1,15 @@
-- name: print hello
-  debug:
-    msg: hello world
+- name: Load MySQL Schema
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: app/schema/{{component}}.sql
+    login_host: mysql-dev.devops22.online
+    login_user: root
+    login_password: "{{root_mysql_password}}"
+    
+- name: Install Python Dependencies
+  ansible.builtin.yum:
+    name:
+      - python3-PyMySQL
+      - Mysql
+    state: installed
