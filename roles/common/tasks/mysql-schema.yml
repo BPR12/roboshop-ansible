@@ -1,4 +1,4 @@
-- name: Install Python Dependencies
+- name: Install Python Deps
   ansible.builtin.yum:
     name:
       - python3-PyMySQL
